@@ -8,4 +8,10 @@ export class ProductDetailsPage {
     const stockStatus = await this.page.textContent('#availability');
     return stockStatus?.includes('In Stock');
   }
+
+  async addToCart() {
+    await this.page.click('#add-to-cart-button');
+    await this.page.waitForSelector('#nav-cart');
+  }
+  
 }
